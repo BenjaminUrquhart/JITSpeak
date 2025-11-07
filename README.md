@@ -4,6 +4,8 @@ A Catspeak to Gamemaker VM bytecode Just-In-Time compiler.
 
 *This project is more of a prototype than anything, please do not use in production.*
 
+*This repo contains a slightly-modified version of the [Catspeak test suite](https://github.com/katsaii/catspeak-lang) by katsaii.*
+
 # How to use
 Simply set your `codegenType` to `JITSpeakCompilerWrapper`:
 ```gml
