@@ -54,6 +54,7 @@ JITSpeak supports a majority of Catspeak functionality, however some features ar
 **Unimplemented Features:**
 - `match` expressions
 - `catch` expressions
+- Infinite loop/recursion timeouts - you shouldn't be using this on untrusted code anyway.
 
 **Partially supported features:**
 - `with` loops - simple loops work, mileage may vary with more complex logic
