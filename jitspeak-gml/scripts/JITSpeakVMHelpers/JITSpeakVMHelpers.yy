@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"JITSpeakVMHelpers",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"JITSpeakVMHelpers",
+  "parent":{
+    "name":"Compiler",
+    "path":"folders/JITSpeak/Compiler.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

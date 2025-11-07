@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_testing_lexer_symbols",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_testing_lexer_symbols",
+  "parent":{
+    "name":"lexer",
+    "path":"folders/Testing/unit-tests/lexer.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,38 @@
+# Installation
+
+1) Get a recent release of Catspeak from the [GitHub releases page](https://github.com/katsaii/catspeak-lang/releases).
+    You should see a download for a file with the extension `.yymps`.
+
+ 2) Open your project file in the GameMaker IDE.
+
+ 3) Navigate to the toolbar at the top of the IDE and find "Tools". Click this
+    and select "Import Local Package" from the drop-down menu.
+
+ 4) Select the `.yymps` file you downloaded, and follow the wizard to import
+    the Catspeak resources. If you're not sure what to import, click "Add All".
+
+Now you're setup, see the [Basic Usage](#basic-usage) section for an
+introductory example, or read through the [Catspeak for Developers](./hom-catspeak-for-developers.html)
+chapter for a full-fat overview.
+
+# Basic Usage
+
+A minimal working example of a function which returns a message:
+
+```gml
+// parse Catspeak code
+var hir = Catspeak.parseString(@'
+  let catspeak = "Catspeak"
+
+  return "hello! from within " + catspeak
+');
+
+// compile Catspeak code into a callable GML function
+var getMessage = Catspeak.compile(hir);
+
+// call the Catspeak code just like you would any other GML function!
+show_message(getMessage());
+```
+
+Create an object, then copy-and-paste this code into its create event to see
+magic happen.

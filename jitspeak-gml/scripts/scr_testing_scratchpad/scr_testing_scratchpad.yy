@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_testing_scratchpad",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_testing_scratchpad",
+  "parent":{
+    "name":"Testing",
+    "path":"folders/Testing.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

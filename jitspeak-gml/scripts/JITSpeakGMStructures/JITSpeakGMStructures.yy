@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"JITSpeakGMStructures",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"JITSpeakGMStructures",
+  "parent":{
+    "name":"Gamemaker",
+    "path":"folders/JITSpeak/Gamemaker.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"JITSpeakInit",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"JITSpeakInit",
+  "parent":{
+    "name":"JITSpeak",
+    "path":"folders/JITSpeak.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

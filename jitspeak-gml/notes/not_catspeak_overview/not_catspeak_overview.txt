@@ -1,0 +1,112 @@
+_See the pages on [Lexical Grammar](./lan-lexical-grammar.html),
+[Statements](./lan-statements.html), and [Expressions](./lan-expressions.html) for more in-depth information on the Catspeak language syntax._
+
+# Similarity to GML
+
+Catspeak is a simple imperative language with a vaguely similar syntax to 
+GameMaker Language (GML) and JavaScript. Consider the following program written
+in GML to calculate the factorial of a number `n`:
+
+```gml
+// GML CODE
+function factorial(n) {
+    var m = 1;
+    if (n > 1) {
+        m = n * factorial(n - 1);
+    }
+    return m;
+}
+
+factorial(5); // output: 120
+```
+
+The same code re-written in the Catspeak programming language looks like:
+
+```meow
+-- CATSPEAK CODE
+factorial = fun (n) {
+    let m = 1
+    if (n > 1) {
+        m = n * factorial(n - 1)
+    }
+    return m
+}
+
+factorial(5) -- output: 120
+```
+
+The "shape" of the code is similar to GML, but there are some immediately
+obvious differences here. For example: the `m` variable
+being declared using `let` instead of `var`; `fun` instead of `function`; and
+comments using `--` instead of `//`. All of these and more are covered in the
+[Pitfalls](#pitfalls) section.
+
+# Pitfalls
+
+Catspeak is **not** GML, and so you should not assume it will behave
+identically to GML. This section lists the common differences between GML and
+the Catspeak programming language:
+
+ - **Variables**:
+
+   - Local variables in Catspeak are **declared using `let`**, not `var`.
+     (See [Let Statements](./lan-expressions.html#let-statements))
+
+   - Local variables and function definitions are **not [hoisted](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)**;
+     that is, _using local variables and functions before they are defined_.
+     (See [Let Statements](./lan-expressions.html#let-statements) and [Function Expressions](./lan-expressions.html#function-expressions))
+
+     ```meow
+     show_mesage(my_var) -- does NOT print '2'
+
+     let my_var = 2
+     ```
+
+   - Local variables can **only be used inside of the block they are defined in**.
+     (See [Let Statements](./lan-expressions.html#let-statements))
+
+     ```meow
+     if condition {
+        let a = "hello chat"
+     }
+     return a -- does NOT refer to the local variable 'a' here
+     ```
+
+   - **Global variables are not accessible** by default. There is no built-in
+     `global` object, this must be explicitly exposed by the modding API.
+
+   - To access instance variables you need to **explicitly write `self`**.
+     (See [Self Expressions](./lan-expressions.html#self-expressions))
+
+     ```meow
+     let a = item      -- 'item' refers to a Catspeak variable here
+     let b = self.item -- 'item' refers to a GML instance variable here
+     ```
+
+ - **Syntax**:
+
+   - `++` and `--` are **not valid operators** use `i += 1` and `i -= 1` instead.
+     (See [Operators](./lan-lexical-grammar.html#operators))
+
+   - Catspeak reserves **`--` for comments**.
+     (See [Operators](./lan-lexical-grammar.html#operators) and [Comments](./lan-lexical-grammar.html#comments))
+
+   - Catspeak reserves `//` for **integer division**.
+     (See [Operators](./lan-lexical-grammar.html#operators) and [Comments](./lan-lexical-grammar.html#comments))
+
+   - The ternary operator **`condition ? a : b` does not exist** in Catspeak, instead
+     the [If Expression](./lan-expressions.html#if-expressions) should be used
+     `if a > b { a } else { b }`
+
+   - **`for`, `repeat`, and `do` loops do not exist**. Instead you should use
+     [While Loops](./lan-expressions.html#while-loops).
+
+   - **`switch` does not exist**. Instead you should use [Match Expressions](./lan-expressions.html#while-loops).
+
+   - There are **no `[@` and `[$` accessors**, both structs and arrays can be
+     indexed using `a[i]`.
+     (See [Accessor Expressions](./lan-expressions.html#accessor-expressions))
+
+   - There are **no `[#`, `[?`, and `[|` accessors**. Data structures should use
+     functions like `ds_list_get` and `ds_list_set`, if exposed by the modding
+     API.

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_testing_environment",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_testing_environment",
+  "parent":{
+    "name":"unit-tests",
+    "path":"folders/Testing/unit-tests.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
